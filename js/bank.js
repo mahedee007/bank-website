@@ -4,7 +4,11 @@ document.getElementById("login-btn").addEventListener("click", function(){
     const password = document.getElementById("password");
     const enterPassword = password.value;
     if(enterPassword == "secret" && enterUserName == "father"){
+        
         window.location.href = "banking.html";
 
+    }
+    else{
+        alert("enter valid username &password")
     }
 })

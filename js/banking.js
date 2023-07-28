@@ -60,7 +60,8 @@ document.getElementById("withdraw-btn").addEventListener("click", function(){
 
     updateBalance(totalWithdraw, false);
 
-    }
+    }else{
+        alert("please enter a valid number");
 
     
 })
