@@ -12,7 +12,11 @@ function totalAmountField(Id){
   return totalAmount;
 }
 
+function updateBalance(Id , value){
+  const balanceUpdate = document.getElementById(Id);
+  balanceUpdate.innerText = value;
 
+}
 
 
 
@@ -24,12 +28,12 @@ document.getElementById('deposit-btn').addEventListener('click', function(){
   
   
   const newDepositTotal = totalAmount + totalInput;
-  console.log(newDepositTotal);
-  totalAmount.innerText = newDepositTotal;
-
   
-  // const totalBalance = balanceNumber + enterDepositNumber;
-  // balance.innerText = totalBalance;
+  updateBalance('deposit', newDepositTotal);
+
+  const currentBalance = totalAmountField('balance');
+  const totalBalance = currentBalance + totalInput;
+  updateBalance('balance', totalBalance);
 
    
 })
