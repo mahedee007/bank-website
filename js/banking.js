@@ -24,7 +24,8 @@ function updateBalance(Id , value){
 
 document.getElementById('deposit-btn').addEventListener('click', function(){
   const totalInput = inputField('deposit-input');
-  const totalAmount = totalAmountField('deposit');
+  if (totalInput > 0){
+    const totalAmount = totalAmountField('deposit');
   
   
   const newDepositTotal = totalAmount + totalInput;
@@ -35,19 +36,30 @@ document.getElementById('deposit-btn').addEventListener('click', function(){
   const totalBalance = currentBalance + totalInput;
   updateBalance('balance', totalBalance);
 
+  }else{
+    alert('input a valid number');
+  }
+  
+
    
 })
 document.getElementById('withdraw-btn').addEventListener('click', function(){
   const totalInput = inputField('withdraw-input');
-  const totalAmount = totalAmountField('withdraw');
-  const newWithdrawTotal = totalAmount + totalInput;
-  updateBalance('withdraw', newWithdrawTotal);
-  const currentBalance = totalAmountField('balance');
-  if (currentBalance > 0){
-    const totalBalance = currentBalance - totalInput;
-    updateBalance('balance', totalBalance);
-  }else{
-    alert('input correct amount');
+  if(totalInput> 0){
+    const totalAmount = totalAmountField('withdraw');
+    const newWithdrawTotal = totalAmount + totalInput;
+    updateBalance('withdraw', newWithdrawTotal);
+    const currentBalance = totalAmountField('balance');
+    if (currentBalance > 0){
+      const totalBalance = currentBalance - totalInput;
+      updateBalance('balance', totalBalance);
+    }else{
+      alert('withdraw amount can not exceed current balance');
+    }
+
+  }else {
+    alert('Input a valid amount')
   }
+ 
   
 })
