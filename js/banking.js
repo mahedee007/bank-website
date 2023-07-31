@@ -37,3 +37,17 @@ document.getElementById('deposit-btn').addEventListener('click', function(){
 
    
 })
+document.getElementById('withdraw-btn').addEventListener('click', function(){
+  const totalInput = inputField('withdraw-input');
+  const totalAmount = totalAmountField('withdraw');
+  const newWithdrawTotal = totalAmount + totalInput;
+  updateBalance('withdraw', newWithdrawTotal);
+  const currentBalance = totalAmountField('balance');
+  if (currentBalance > 0){
+    const totalBalance = currentBalance - totalInput;
+    updateBalance('balance', totalBalance);
+  }else{
+    alert('input correct amount');
+  }
+  
+})
