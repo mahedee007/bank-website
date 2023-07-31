@@ -1,20 +1,35 @@
+function inputField(Id){
+  const inputValue = document.getElementById(Id);
+  const inputValueString = inputValue.value;
+  const totalInput = parseFloat(inputValueString);
+  inputValue.value = '';
+  return totalInput;
+}
+function totalAmountField(Id){
+  const amountValue = document.getElementById(Id);
+  const amountValueString = amountValue.innerText;
+  const totalAmount = parseFloat(amountValueString);
+  return totalAmount;
+}
+
+
+
+
+
 
 
 document.getElementById('deposit-btn').addEventListener('click', function(){
-  const inputField = document.getElementById('deposit-input');
-  const enterDeposit = inputField.value;
-  const enterDepositNumber = parseFloat(enterDeposit);
-  const depositField = document.getElementById('deposit');
-  const depositFieldstring = depositField.innerText;
-  const depositFieldNumber = parseFloat(depositFieldstring);
-  const newDepositTotal = depositFieldNumber + enterDepositNumber;
-  depositField.innerText = newDepositTotal;
+  const totalInput = inputField('deposit-input');
+  const totalAmount = totalAmountField('deposit');
+  
+  
+  const newDepositTotal = totalAmount + totalInput;
+  console.log(newDepositTotal);
+  totalAmount.innerText = newDepositTotal;
 
-  const balance = document.getElementById('balance');
-  const balanceString = balance.innerText;
-  const balanceNumber = parseFloat(balanceString);
-  const totalBalance = balanceNumber + enterDepositNumber;
-  balance.innerText = totalBalance;
+  
+  // const totalBalance = balanceNumber + enterDepositNumber;
+  // balance.innerText = totalBalance;
 
-  inputField.value = ''; 
+   
 })
